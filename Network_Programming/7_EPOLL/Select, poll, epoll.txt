@@ -1,0 +1,6 @@
+W Linuksie wprowadzono epoll, ponieważ poprzednie rozwiązania, select i poll, były za wolne i słabo radziły sobie z obsługą większej ilości połączeń.
+Select mógł obsłużyć bardzo małą liczbę połączeń (1024, stała FD_SETSIZE), w poll i epoll tego problemu już nie ma.
+W obu metodach, select i poll, nie jest możliwe wykrycie, do którego z deskryptorów należy wydarzenie, co skutkuje potrzebą przeglądania list wszystkich deskryptorów w razie pojawienia się wydarzenia i co jest wolne.
+W epoll zostało to poprawione, od razu jest wykrywane do którego z deskryptorów odwołuje się wydarzenie, czyli metoda kontroluje tylko te gniazda, na których w danym momencie coś pojawia.
+Wprowadzono również możliwość dodawania i usuwania gniazd do monitorowanych, czego w poprzednich metodach nie można było zrobić.
+Złożoności select i poll to O(N), zaś epoll O(1), więc szybkość działania dla większej ilości połączeń jest spora.

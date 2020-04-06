@@ -1,0 +1,35 @@
+a)
+
+x = 2 ; y = 3 ;
+if (x > y):
+    result = x;
+else:
+    result = y;
+
+~ Powyzszy kod jest poprawny skladniowo:
+ - sredniki, oznaczaja oddzielenie kilku instrukcji w jednej linijce
+ - nawiasy do warunku s¹ opcjonalne
+
+b)
+
+for i in "qwerty": if ord(i) < 100: print i
+
+~ Niepoprawny, gdyz linijka nie moze zawierac takiej ilosci instrukcji
+ - instrukcje musza byc oddzielone znakiem nowej lini
+ - wyjatkiem s¹ instrukcje przy ktorych mozna uzyc zapisu skroconego dla prostych wyrazen
+Gdyby kod wygladal tak:
+
+for i in "qwerty":
+	if ord(i) < 100: print i
+
+przeszedlby bez problemu.
+
+c)
+
+for i in "axby": print ord(i) if ord(i) < 100 else i
+
+~ Poprawny, jest to zapis skrocony z zastosowaniem wyrazenia trojargumentowego
+
+
+
+

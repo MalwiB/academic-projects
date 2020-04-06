@@ -1,0 +1,17 @@
+--Autor:
+Malwina Borysionek
+
+
+--Data i miejsce:
+7 czerwca 2015r.,Krakow
+
+
+--Zawartość katalogu:
+Katalog zawiera program, ktory przesyla dane tekstowe z pliku magazyn.txt do bufora cyklicznego znajdujacego sie w pamieci dzielonej oraz program, ktory te dane odbiera z pamieci dzielonej i zapisuje do pliku produkt.txt.
+Zawiera rowniez biblioteki do tych programow.
+
+--Jak uruchomic programy:
+Aby uruchomić program najpierw należy skompilować go poleciem "make", a nastepnie wprowadzić w konsoli "make xterm1". Aby uruchomić program z dzielona biblioteka, dynamiczna nalezy wprowadzic zgodnie z makefile'm "make xtermd1" albo "make xtermd2"
+
+
+Dodatkową opcją jest możliwość utworzenia z plików archiwum za pomocą polecenia "make tar" oraz wyczyszczenia powstałych przy linkowaniu i  kompilowaniu programów plików obiektowych i wykonywalnych poprzez "make clean".

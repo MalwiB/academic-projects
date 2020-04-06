@@ -1,0 +1,3 @@
+--Ile powstaje procesow i dlaczego?
+
+Powstaje 7 procesów potomnych. W pierwszej pętli, dla i=0 powstaje jeden proces, w drugiej iteracji są tworzone kolejne dwa (jeden z rozgalezienia macierzystego, drugi z pierwszego procesu potomnego), w trzecim cyklu pętli na tej samej zasadzie powstają kolejne 4 procesy, co daje nam w sumie 7 procesów potomnych.

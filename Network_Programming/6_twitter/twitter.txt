@@ -1,0 +1,24 @@
+WebAPI jest usługą sieciową umożliwiającą wymianę zasobów bez pośrednictwa interfejsu strony pomiędzy danym serwerem (Twittera) a oprogramowaniem zewnętrznym (aplikacją), napisanym przez programistę.
+WebAPI składa się z szeregu metod odpowiadającym funkcjom serwisu.
+
+Aby korzystać z WebAPI poprzez mój program, należy uzyskać od właściciela serwisu klucz dostępowy, który identyfikuje użytkownika w usłudze.
+
+W API Twittera wykorzystywane jest uwierzytelnianie OAuth, może być wymagana weryfikacja tylko przez aplikację albo przez użytkownika aplikacji.
+Uwierzytelnianie przez aplikację jest wykonywane bez udziału użytkownika, w imieniu własnym aplikacji.
+Weryfkacja poprzez użytkownika polega na przekierowaniu go na stronę Twittera, aby się zalogował. Jeśli logowanie się powiedzie, Twitter zwróci tokeny dostępu i od tego momentu aplikacja będzie wykonywała wszystkie operacje w imieniu użytkownika. 
+Nie wszystkie metody w API można użyć w obu uwierzytelnianiach, gdyż np. do udostępnienia tweeta trzeba być zalogowanym - musi wystąpić uwierzytelnianie poprzez użytkownika, za to aplikacja może zawierać oba rodzaje uwierzytelniania.
+
+OAuth jest uważany za bezpieczny, ponieważ użytkownik nie musi dzielić się danymi logowania z kolejnymi aplikacjami, które przechowywałyby poufne informacje, tylko loguje się bezpośrednio na stronie, na której ma już konto.
+
+
+Dalszym etapem rozwoju aplikacji jest odczytywanie danych z Twittera, co można łatwo uczynić z pomocą REST API.
+Żądania są wysyłane przez aplikację, REST API gwarantuje dostęp do danych, odpowiedź do aplikacji wysyłana jest w formacie JSON.
+
+Na stronie
+
+https://dev.twitter.com/rest/reference
+
+znajduje się obszerna dokumentacja żądań, których można użyć w aplikacji.
+
+
+W wypadku, gdybym chciała stworzyć aplikację przetwarzającą dane w czasie rzeczywistym, dobrym wyborem byłoby Streaming API.

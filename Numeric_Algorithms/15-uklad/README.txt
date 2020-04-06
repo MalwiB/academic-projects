@@ -1,0 +1,1 @@
+* należy kompilować z flagami -lm i -std=c++11

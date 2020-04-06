@@ -1,0 +1,18 @@
+WYSYLANIE MAILA PRZEZ TELNET:
+
+telnet 213.199.154.42 25
+
+helo student.uj.edu.pl
+
+MAIL FROM:from@student.uj.edu.pl
+
+RCPT TO:to@student.uj.edu.pl
+
+DATA
+From: from@student.uj.edu.pl
+To: to@student.uj.edu.pl
+Subject: Test
+Date: Thu, 20 Dec 2012 12:00:00 +0000
+
+Testing
+.

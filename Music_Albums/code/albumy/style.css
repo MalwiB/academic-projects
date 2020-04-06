@@ -1,0 +1,182 @@
+body
+{
+    background-color: #ebd6c6;
+    color: #800000;
+    font-family: "Georgia", Georgia, serif;
+    font-size: 20px;
+}
+
+
+.content
+{
+    margin: auto;
+    width: 40%;
+    padding: 10px;
+}
+
+.left
+{
+    float:left;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+.right
+{
+    float: right;
+    margin: auto;
+    width: 35%;
+    padding: 10px;
+}
+
+
+
+.ul_bar
+{
+    list-style-type: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4d2600;
+}
+
+.li_bar
+{
+    float: left;
+}
+
+.li_bar a
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.li_bar a:hover:not(.active)
+{
+    background-color: #1a0c00;
+}
+
+.active
+{
+    background-color: #800000;
+}
+
+
+
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td
+{
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2e6d9}
+
+th
+{
+    background-color: #cc9966;
+    color: black;
+}
+
+
+input[type=text]
+{
+    background-color: #fff3e6;
+    font-size: 16px;
+    color: #4d2600;
+    outline: none;
+}
+
+
+input[type=text]:focus
+{
+    border: 1px solid #800000;
+    background-color: #ffdab3;
+}
+
+input[type=password]
+{
+    background-color: #fff3e6;
+    font-size: 16px;
+    color: #4d2600;
+    outline: none;
+}
+
+
+input[type=password]:focus {
+    border: 1px solid #800000;
+    background-color: #ffdab3;
+}
+
+input[type=submit]
+{
+    background-color: #4d2600;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+
+select
+{
+    background-color: #fff3e6;
+    font-size: 16px;
+    color: #800000;
+    outline: none;
+}
+
+select:focus
+{
+    border: 1px solid #800000;
+    background-color: #ffdab3;
+    color: #800000;
+}
+
+option:checked, option:hover
+{
+    background: antiquewhite;
+
+}
+
+.a_delete
+{
+    background-color: #debba1;
+    color: #e60000;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    padding: 3px 3px;
+}
+
+.a_delete:hover
+{
+    background-color: #ff0000;
+    color: white;
+
+}
+
+.a_szczegoly
+{
+    text-decoration: none;
+    color: #86592d;
+
+}
+
+.a_szczegoly:hover
+{
+    color: #800000;
+    font-weight: normal;
+}

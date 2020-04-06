@@ -1,0 +1,1 @@
+Wystepuja tu tylko 3 procesy, nie ma dalszych procesow potomnych- wynika to z dzialania zarowno funkcji fork, jak i exec, fork kopiuje caly program do osobnego procesu oraz dla kazdego powstalego w fork'u procesu potomnego jest zastosowana  funkcja exec, ktora wprowadza dla tego procesu kod z innego programu (sciezka jest podana w pierwszym argumencie), w ktorym nie ma juz petli.

@@ -1,0 +1,4 @@
+Tworzenie plikow .csv (szczegolnie albumy.csv i piosenki.csv) w dużej mierze polegalo na wyszukiwaniu w internecie konkretnych albumow i piosenek, gdyz chcialam by dane te byly wiarygodne.
+Tworzac rekordy, ktore znajda sie w tabelach uzytkownikow, list, elementow list i ocen wykorzystalam generator, znajdujacy sie na stronie
+http://edu.ittraining.pl/material/Generator-danych-testowych-polska
+Hasla nie zostaly zapisane w bazie danych wprost, tylko za pomoca algorytmow haszujacych, aby nie naruszac bezpieczenstwa.

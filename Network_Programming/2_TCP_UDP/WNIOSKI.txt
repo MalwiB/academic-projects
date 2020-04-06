@@ -1,0 +1,73 @@
+W programie klienta funkcję write uruchamiam w pętli 3 RAZY, po każdym wykonaniu następuje sleep.
+W serwerze funkcję read uruchamiam w pętli do while, po każdym odczytaniu następuje sleep.
+Wartości dla sleep są podawane w linii komend osobno dla serwera i klienta.
+
+Rozmiar serwera przy TCP ustanowiłam na 131072 bitów, a przy UDP na 4096 bitów.
+Rozmiar bufora w kliencie jest podawany z linii komend.
+
+
+
+
+OBSERWACJE dla TCP:
+(podane czasy to parametry dla sleep)
+(Gdy klient rozłączy się, a w strumieniu są dane oczekujące na odebranie przez serwer, dane te przepadają)
+Nie zmieniam rozmiaru bufora w serwerze, wynosi on 131072 bitów.
+
+- 512 B == 4096 b (jednocześnie jest to pojemność bufora klienta)
+	* klient - 3 s, serwer - 1 s
+Przerwy w działaniu serwera są krótsze niż w działaniu klienta, bufor jest wystarczający aby odebrać całą wiadomość, więc serwer odbiera bez problemu po kolei dane.
+
+	* klient - 1 s, serwer - 3 s
+Przerwy w serwerze występują dopiero po odczytaniu wiadomości, więc pierwszą wiadomość (4096 bitów) od klienta odbiera od razu, później gdy jest uśpiony przez 3 sekundy klient zdążył już posłać 2 wiadomości po 4096 bitów. Gdy serwer się budzi, odbiera od razu te dwie wiadomości, łącznie 8192 bitów.
+
+- 16 KB == 131072 b
+	* klient - 3 s, serwer - 1 s
+Przerwy w działaniu serwera są krótsze niż w działaniu klienta, wielkość bufora jest identyczna jak wielkość wiadomości, więc serwer odbiera bez problemu po kolei dane.
+
+	* klient - 1 s, serwer - 3 s
+Serwer odbiera pierwszą porcję danych, odczekuje czas uśpienia, odbiera tyle danych, na ile pozwala mu bufor, w tym przypadku nie może pobrać wszystkich, bo ma bufor o pojemności tylko 131072, a w strumieniu czeka 2 razy tyle, następnie dalej popada w uśpienie i dopiero w następnej iteracji pobiera resztę danych.
+	
+- 128 KB == 1048576 b
+	* klient - 3 s, serwer - 1 s
+Przerwy w działaniu serwera są krótsze niż w działaniu klienta, lecz wielkość bufora jest mniejsza od wiadomości, więc serwer odbiera dane porcjami, które zapełniają cały bufor, a po każdym odczytaniu czeka 1 s na następne porcje.
+Przy opóźnieniach: serwer 1 sekunda, a klient 3 sekundy, serwer odbiera dane o chwilę dłużej, niż klient je wysyła.
+Jeśli ustawimy opóźnienie klienta np. 10 sekund lub więcej, wtedy serwer nadąża odbierać dane od razu, gdy klient je wysyła. Jest to spowodowane tym, że bufor jest mniejszy od wiadomości (do odebrania wiadomości konieczne jest zapełnienie bufora 8 razy) i konieczne jest kilkukrotne odczytywanie, po którym serwer zawsze odczekuje swój czas.
+
+	* klient - 1 s, serwer - 3 s
+Klient wysyła prawie natychmiastowo swoje porcje danych i kończy działanie, a serwer odczytuje je, wypełniając bufor maksymalnie i odczekując po każdej porcji 3 sekundy opóźnienia.
+
+
+
+
+OBSERWACJE dla UDP:
+Jeden pakiet UDP nie może zawierać więcej niż 8 KB, więc wyniki testów są dla mniejszych wartości. Bufor w serwerze ustawiam na 512 B (4096 bitów).
+(Klient może rozłączać i łączyć się wielokrotnie z serwerem)
+
+- 128 B == 1024 b
+	* klient - 3 s, serwer - 1 s
+Przerwy w działaniu serwera są krótsze niż w działaniu klienta, bufor jest wystarczający aby odebrać całą wiadomość, więc serwer odbiera bez problemu po kolei dane.
+	
+	* klient - 1 s, serwer - 3 s
+Przerwy w serwerze występują dopiero po odczytaniu wiadomości, więc pierwszą wiadomość od klienta odbiera od razu, później gdy jest uśpiony przez 3 sekundy klient zdążył już posłać 2 wiadomości po 1024 bitów, serwer budzi się i odbiera jedną wiadomość, nie zapisuje drugiej do jednego bufora, mimo tego, że obie by się zmieściły (2 osobne pakiety), odczekuje 3 sekundy i dopiero wtedy odbiera drugą.
+
+- 512 B == 4096 b
+	* klient - 3 s, serwer - 1 s
+Przerwy w działaniu serwera są krótsze niż w działaniu klienta, wielkość bufora jest identyczna jak wielkość wiadomości, więc serwer odbiera bez problemu po kolei dane.
+	
+	* klient - 1 s, serwer - 3 s
+Przerwy w serwerze występują dopiero po odczytaniu wiadomości, więc pierwszą wiadomość od klienta odbiera od razu, później gdy jest uśpiony przez 3 sekundy klient zdążył już posłać 2 wiadomości po 4096 bitów, serwer budzi się i odbiera jedną wiadomość, której wielkość jest identyczna jak bufora, czeka 3 sekundy i odbiera drugą.
+	
+- 7 KB == 57344 b
+	* klient - 3 s, serwer - 1 s
+Założeniem UDP jest przesyłanie danych w pojedynczych pakietach.
+W przypadku takim jak tu, gdy klient wysyła w jednym pakiecie ilość danych nie mieszczących się w buforze serwera, serwer odbiera tylko tyle ile się zmieści, a reszta danych jest tracona.
+Klient przesyła trzy razy po 7 KB, pojemność bufora serwera wynosi 0,5KB, co skutkuje stratą sporej części wiadomości, za każdym razem, gdy serwer odbiera pakiet, otrzymuje tylko 0,5 KB, a 6,5 KB przepada.
+
+	* klient - 1 s, serwer - 3 s
+Tutaj przypadek taki sam, jak powyżej, tylko serwer musi czekać dłużej na odebranie danych, z powodu jego 3-sekundowego uśpienia po receive.
+
+
+
+
+WNIOSKI:
+TCP ma taką przewagę, że nie gubi danych, za to UDP można łatwo stosować, gdy klient często się łączy, bo nie trzeba nawiązywać nowego połączenia.

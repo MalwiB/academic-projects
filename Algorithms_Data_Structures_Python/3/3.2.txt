@@ -1,0 +1,27 @@
+a) L = L.sort()
+
+~ funkcja sort() wykonuje sortowanie w miejscu, wiêc nie jest wskazane wykonanie przypisania
+lista jest nadpisywana i skutkuje to jej zresetowaniem (uzyskujemy wartosc None)
+
+b) x, y = 1, 2, 3
+
+~ do dwoch zmiennych przypisujemy 3 wartosci, skutkuje to ValueError
+
+c) X = 1, 2, 3 ; X[1] = 4
+
+~ Krotki nie posiadaja operacji przypisania, raz ustalonej krotki nie mozna zmienic
+
+d) X = [1, 2, 3] ; X[3] = 4
+
+~ Lista posiada tylko 3 elementy, a nastêpuje odwo³anie do elementu czwartego, ktory nie istnieje
+IndexError
+
+e) X = "abc" ; X.append("d")
+
+~ X jest zmienn¹ tekstow¹ i nie posiada metody "append"
+gdy chcemy wykonaæ konkatenacje lancuchow znakow uzywamy "+"
+
+f) map(pow, range(8))
+
+~ funkcji pow nie zostala przyporzadkowana wlasciwa liczba argumentow
+powinna byc podana w nawiasie liczba, ktora chcemy podniesc do potegi oraz potega

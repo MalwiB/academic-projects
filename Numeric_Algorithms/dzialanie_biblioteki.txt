@@ -1,0 +1,4 @@
+gcc main.c -o main -lgsl -lgslcblas -lm
+
+* dokumentacja
+http://www.gnu.org/software/gsl/manual/gsl-ref.pdf

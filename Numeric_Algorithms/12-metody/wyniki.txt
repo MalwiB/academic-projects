@@ -1,0 +1,39 @@
+wyniki dla METODY BISEKCJI:
+Metoda bisekcji dla przedzialu [-5;-4] daje miejsce zerowe (w przyblizeniu) -4.574087.
+Zrobila to w 29 krokach.
+Metoda bisekcji dla przedzialu [0;1] daje miejsce zerowe (w przyblizeniu) 0.025574.
+Zrobila to w 30 krokach.
+Metoda bisekcji dla przedzialu [8;9] daje miejsce zerowe (w przyblizeniu) 8.548513.
+Zrobila to w 30 krokach.
+
+wyniki dla METODY REGULA-FALSI:
+Metoda regula-falsi dla przedzialu [-5;-4] daje miejsce zerowe (w przyblizeniu) -4.574087.
+Zrobila to w 10 krokach.
+Metoda regula-falsi dla przedzialu [0;1] daje miejsce zerowe (w przyblizeniu) 0.025574.
+Zrobila to w 6 krokach.
+Metoda regula-falsi dla przedzialu [8;9] daje miejsce zerowe (w przyblizeniu) 8.548513.
+Zrobila to w 9 krokach.
+
+wyniki dla METODY SIECZNYCH:
+Metoda siecznych dla przedzialu [-5;-4] daje miejsce zerowe (w przyblizeniu) -4.574087.
+Zrobila to w 4 krokach.
+Metoda siecznych dla przedzialu [0;1] daje miejsce zerowe (w przyblizeniu) 0.025574.
+Zrobila to w 3 krokach.
+Metoda siecznych dla przedzialu [8;9] daje miejsce zerowe (w przyblizeniu) 8.548513.
+Zrobila to w 4 krokach.
+
+wyniki dla METODY NEWTON'A:
+Metoda Newtona dla przedzialu [-5;-4] daje miejsce zerowe (w przyblizeniu) -4.574087.
+Zrobila to w 3 krokach.
+Metoda Newtona dla przedzialu [0;1] daje miejsce zerowe (w przyblizeniu) 0.025574.
+Zrobila to w 2 krokach.
+Metoda Newtona dla przedzialu [8;9] daje miejsce zerowe (w przyblizeniu) 8.548513.
+Zrobila to w 3 krokach.
+
+wyniki dla METODY HALLEY'A:
+Metoda Newtona dla przedzialu [-5;-4] daje miejsce zerowe (w przyblizeniu) -4.574087.
+Zrobila to w 2 krokach.
+Metoda Newtona dla przedzialu [0;1] daje miejsce zerowe (w przyblizeniu) 0.025574.
+Zrobila to w 2 krokach.
+Metoda Newtona dla przedzialu [8;9] daje miejsce zerowe (w przyblizeniu) 8.548513.
+Zrobila to w 2 krokach.

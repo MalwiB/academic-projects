@@ -1,0 +1,12 @@
+http://users.uj.edu.pl/~palacz/edu/201617-PS/index.html
+
+
+3. Wysy³anie listów do serwera SMTP
+
+Termin oddania finalnej wersji rozwi¹zania: 2017-04-10. Dowolny jêzyk programowania.
+Poczta elektroniczna jest jedn¹ z najstarszych us³ug. Jest te¿ dobrym przyk³adem dydaktycznym, bo i listy, i protokó³ do przesy³ania ich z serwera na serwer s¹ czysto tekstowe. Program korzystaj¹cy z SMTP nie musi wiêc kodowaæ ani dekodowaæ danych binarnych, wystarcz¹ mu funkcje przetwarzaj¹ce ³añcuchy tekstowe.
+Tekstowy charakter protoko³u pozwala te¿ ³atwo z nim eksperymentowaæ. Linuksowe dystrybucje zazwyczaj zawieraj¹ program netcat (mo¿e byæ te¿ dostêpny pod nazw¹ nc lub ncat). Pozwala on nawi¹zaæ po³¹czenie ze wskazanym serwerem, a nastêpnie wysy³a do niego znaki wpisane z klawiatury; odpowiedzi zwracane przez serwer s¹ drukowane na ekranie. Identyczna funkcjonalnoœæ wbudowana jest w windowsowy program PuTTY, którego czêœæ z Pañstwa u¿ywa do ³¹czenia siê z spk-ssh.if.uj.edu.pl. Wystarczy jako typ po³¹czenia wybraæ „Raw” zamiast „SSH”.
+Proszê zapoznaæ siê z dokumentami RFC opisuj¹cymi protokó³ transferu poczty oraz format wiadomoœci pocztowych. Mo¿na skorzystaæ z pierwszych ich wersji z 1982 roku: RFC 821 i RFC 822. Te stare wersje s¹ o kilkanaœcie stron krótsze od wspó³czesnych, podstawowe rzeczy w nich opisane siê nie zmieni³y, i bêdziecie mieli przyjemnoœæ zobaczyæ w druku nazwê „ARPANET” (to z tej sieci wyrós³ znany nam Internet).
+Nastêpnie proszê spróbowaæ rêcznie wys³aæ do samego siebie jednozdaniowy list. Jeœli Wasz adres pocztowy ma koñcówkê „@uj.edu.pl” proszê po³¹czyæ siê z adresem 149.156.73.222 lub 149.156.81.153, a jeœli „@student.uj.edu.pl” to proszê ³¹czyæ siê z 213.199.154.42 lub 213.199.180.138. Po³¹czenie TCP, numer portu 25 (oficjalnie przydzielony dla SMTP).
+Przypominam ¿e spk-ssh.if.uj.edu.pl ma firewall blokuj¹cy po³¹czenia wychodz¹ce, i nie pozwala ³¹czyæ siê z serwerami SMTP.
+Na koniec proszê napisaæ program, który wysy³a taki sam list. Proszê zwróciæ uwagê ¿e w przypadku rêcznego wysy³ania ewentualne b³êdy na poziomie po³¹czenia TCP obs³ugiwa³by netcat, a b³êdy na poziomie SMTP — cz³owiek (przerwalibyœcie wydawanie kolejnych komend gdyby serwer na któr¹œ z nich odpowiedzia³ komunikatem b³êdu, prawda?). Pisz¹c program trzeba bêdzie w jego kodzie umieœciæ obs³ugê obu kategorii b³êdów.

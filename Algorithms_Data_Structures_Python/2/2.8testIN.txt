@@ -1,0 +1,7 @@
+#ten plik nalezy skopiowac
+to ma byc skopiowane
+to tez
+#a to nie powinno sie kopiowac
+sin
+cos
+#tg

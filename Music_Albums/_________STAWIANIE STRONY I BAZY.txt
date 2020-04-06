@@ -1,0 +1,11 @@
+* umieszczenie kodu w Apache24/htdocs
+
+* wrzucenie "skrypt.txt" do C:/
+
+* wrzucenie plików .csv do folderu z baza danych (MySQL ProgramData)
+
+* polecenie w mysql:
+
+\. C:/skrypt0.txt
+
+uruchamia skrypt 0, ktory tworzy bazę (to samo dla innych skryptow- "skrypt1.txt")
